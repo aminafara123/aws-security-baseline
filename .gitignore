@@ -1,0 +1,24 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+crash.log
+crash.*.log
+*.tfplan
+# NOTE: .terraform.lock.hcl is intentionally NOT ignored - commit it.
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Personal work checklist - never pushed to GitHub
+MY-CHECKLIST.md

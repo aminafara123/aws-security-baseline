@@ -1,0 +1,22 @@
+# Copy this file to terraform.tfvars and edit the values.
+# terraform.tfvars is gitignored, so your real email never lands in git.
+
+# REQUIRED: email address for GuardDuty alerts and budget notifications.
+# After `terraform apply`, click the confirmation link AWS emails you.
+alert_email = "you@example.com"
+
+# Region for all regional resources. us-east-1 is the default; me-central-1
+# (UAE) also supports every service used here.
+# aws_region = "us-east-1"
+
+# Prefix for all resource names.
+# project_name = "aws-security-baseline"
+
+# Days to keep CloudTrail and AWS Config logs in S3.
+# log_retention_days = 365
+
+# Alert on GuardDuty findings at or above this severity (7 = High).
+# guardduty_severity_threshold = 7
+
+# Monthly cost budget in USD.
+# monthly_budget_amount = 10
