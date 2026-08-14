@@ -141,7 +141,7 @@ Roughly free for 30 days, then a few dollars a month on a small personal account
 | --- | --- |
 | GuardDuty | 30-day free trial, then typically $1–5/mo on an idle personal account (priced on events and data analysed) |
 | Security Hub | 30-day free trial, then typically $1–3/mo (priced per security check and finding ingestion) |
-| AWS Config | 30-day free trial, then charges per configuration item recorded (~$0.003 each) and per rule evaluation (~$0.001 each); a quiet account usually lands at $1–3/mo |
+| AWS Config | No free trial, bills from day one: per configuration item recorded (~$0.003 each) and per rule evaluation (~$0.001 each); a quiet account usually lands at $1–3/mo, with small spikes when many resources are created or destroyed |
 | CloudTrail | First copy of management events is free; the S3 storage is pennies at personal-account volume |
 | S3 (two log buckets) | A few cents/mo; the lifecycle rule expires objects after `log_retention_days` (default 365) so storage never grows unbounded |
 | SNS, EventBridge | Effectively free at this volume (email notifications have a generous free tier) |
