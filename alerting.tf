@@ -59,8 +59,8 @@ resource "aws_cloudwatch_event_target" "guardduty_to_sns" {
 
   # The input transformer turns the raw finding JSON into a short plain-text
   # message, so the alert email is readable on a phone instead of being a
-  # wall of JSON. EventBridge supports multi-line quoted strings in input
-  # templates for plain-text targets like SNS.
+  # wall of JSON. The template must reach the API as one valid JSON string,
+  # so jsonencode() handles the quoting and escapes the newlines.
   input_transformer {
     input_paths = {
       account     = "$.account"
@@ -72,8 +72,8 @@ resource "aws_cloudwatch_event_target" "guardduty_to_sns" {
       finding_id  = "$.detail.id"
     }
 
-    input_template = <<-EOT
-      "GuardDuty finding in account <account> (<region>)
+    input_template = jsonencode(<<-EOT
+      GuardDuty finding in account <account> (<region>)
 
       Severity:   <severity>
       Type:       <type>
@@ -82,7 +82,8 @@ resource "aws_cloudwatch_event_target" "guardduty_to_sns" {
 
       <description>
 
-      Open the GuardDuty console in <region> to investigate."
+      Open the GuardDuty console in <region> to investigate.
     EOT
+    )
   }
 }
